@@ -96,11 +96,13 @@
         }
 
         function editTask(index) {
-            const newTaskName = prompt('Edit task:', tasks[index].name);
+            if (confirm('Are you sure you want to edit this task?')) {
+                const newTaskName = prompt('Edit task:', tasks[index].name);
 
-            if (newTaskName !== null && newTaskName.trim() !== '') {
-                tasks[index].name = newTaskName.trim();
-                renderTasks();
+                if (newTaskName !== null && newTaskName.trim() !== '') {
+                    tasks[index].name = newTaskName.trim();
+                    renderTasks();
+                }
             }
         }
 
